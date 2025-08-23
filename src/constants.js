@@ -148,8 +148,8 @@ export const projects = [
     image: PortfolioWebsite,
     video: Portfolio,
     tags: ["React", "Framer Motion", "Tailwind CSS", "Vite" ],
-    github: "https://github.com/hemshika22/portfolio",
-    webapp: "https://hemshika22.github.io/portfolio/",
+    github: "https://github.com/hemshika22/My-Portfolio",
+    webapp: "https://my-portfolio-hemshika.vercel.app/",
   },
   // {
   //   id: 4,
