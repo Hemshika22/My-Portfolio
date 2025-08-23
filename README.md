@@ -1,4 +1,4 @@
-#Yo, Here is My Portfolio
+## My Portfolio
 
 A personal portfolio website showcasing my skills, projects, and experience as a full-stack developer. Built with **React.js**, **TailwindCSS**, and **Framer Motion**.
 
@@ -10,7 +10,7 @@ A personal portfolio website showcasing my skills, projects, and experience as a
 - **Framer Motion** – For smooth animations and transitions  
 - **JavaScript & HTML/CSS** – Core web development technologies  
 
----
+
 
 ## Features
 - **About Me** – Introduction and skills overview  
@@ -20,14 +20,11 @@ A personal portfolio website showcasing my skills, projects, and experience as a
 - **Responsive Design** – Works perfectly on desktop and mobile devices  
 - **Animations & Interactions** – Smooth transitions powered by Framer Motion  
 
----
 
 ## Live Demo
 
----
+
 
 ## Installation / Setup
 To run the project locally:
 
-
-npm start
