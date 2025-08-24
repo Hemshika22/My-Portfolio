@@ -24,7 +24,6 @@ const Navbar = () => {
   const menuItems = [
     { id: "about", label: "About" },
     { id: "skills", label: "Skills" },
-    // { id: "experience", label: "Experience" },
     { id: "projects", label: "Projects" },
     { id: "education", label: "Education" },
     { id: "contact", label: "Contact" },
@@ -35,7 +34,8 @@ const Navbar = () => {
       className={`fixed top-0 w-full z-50 transition duration-300 
         px-6 md:px-12 lg:px-32
         ${isScrolled ? 
-        'bg-[#0a192f]/90 bg-opacity-90 backdrop-blur-md border border-white/10 shadow-lg' : 'bg-transparent'}`}
+        'bg-[#0a192f]/90 backdrop-blur-md border-b border-white/10 shadow-lg' 
+        : 'bg-transparent'}`}
     >
       <div className='text-white py-4 flex justify-between items-center'>
         {/* Logo */}
@@ -96,46 +96,45 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      {isOpen && (
-        <div
-          className='absolute top-16 left-1/2 transform -translate-x-1/2 
-            w-[90%] max-w-sm bg-[#0a192f] bg-opacity-10 
-            shadow-md rounded-lg py-6 px-6 z-50 animate-fadeIn'
-        >
-          <ul className='flex flex-col space-y-4 text-gray-300'>
-            {menuItems.map((item) => (
-              <li
-                key={item.id}
-                className={`cursor-pointer hover:text-white transition-colors 
-                  ${activeSection === item.id ? 'text-[#8245ec]' : ''}`}
-              >
-                <button onClick={() => handleMenuItemClick(item.id)}>{item.label}</button>
-              </li>
-            ))}
+      {/* Mobile Menu Overlay */}
+      <div
+        className={`fixed inset-0 bg-[#0a192f] bg-opacity-95 z-40 
+          transform transition-transform duration-300 ease-in-out
+          ${isOpen ? "translate-x-0" : "translate-x-full"} md:hidden`}
+      >
+        <div className='flex flex-col items-center justify-center h-full space-y-8 text-gray-300 text-lg'>
+          {menuItems.map((item) => (
+            <button
+              key={item.id}
+              onClick={() => handleMenuItemClick(item.id)}
+              className={`hover:text-[#8245ec] transition-colors 
+                ${activeSection === item.id ? 'text-[#8245ec]' : ''}`}
+            >
+              {item.label}
+            </button>
+          ))}
 
-            {/* Mobile Social Icons */}
-            <div className='flex space-x-4 pt-4'>
-              <a
-                href="https://github.com/Hemshika22"
-                target="_blank"
-                rel="noopener noreferrer"
-                className='text-gray-300 hover:text-white transition-colors'
-              >
-                <FaGithub size={22} />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/hemshika-gautam/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className='text-gray-300 hover:text-white transition-colors'
-              >
-                <FaLinkedin size={22} />
-              </a>
-            </div>
-          </ul>
+          {/* Mobile Social Icons */}
+          <div className='flex space-x-6 pt-6'>
+            <a
+              href="https://github.com/Hemshika22"
+              target="_blank"
+              rel="noopener noreferrer"
+              className='text-gray-300 hover:text-[#8245ec] transition-colors'
+            >
+              <FaGithub size={26} />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/hemshika-gautam/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className='text-gray-300 hover:text-[#8245ec] transition-colors'
+            >
+              <FaLinkedin size={26} />
+            </a>
+          </div>
         </div>
-      )}
+      </div>
     </nav>
   )
 }

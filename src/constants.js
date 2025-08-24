@@ -20,6 +20,7 @@ import ECommerce from './assets/ECommerceProject.png';
 import ECommerceVideo from './assets/E-CommerceVideo.mp4';
 import Portfolio from './assets/Portfolio.mp4';
 import PortfolioWebsite from './assets/PortfolioWebsite.png';
+import CMS from './assets/CMS-App.png';
 
 export const SkillsInfo = [
   {
@@ -151,16 +152,16 @@ export const projects = [
     github: "https://github.com/hemshika22/My-Portfolio",
     webapp: "https://my-portfolio-hemshika.vercel.app/",
   },
-  // {
-  //   id: 4,
-  //   title: "Doggurescue",
-  //   description:
-  //     "AI-integrated animal rescue website that helps people report, adopt, and rescue stray dogs with real-time location tracking.",
-  //   image: "/assets/projects/doggurescue.png",
-  //   video: "/assets/projects/doggurescue-demo.mp4",
-  //   tags: ["React", "Express", "MongoDB", "AI APIs"],
-  //   github: "https://github.com/yourusername/doggurescue",
-  //   webapp: "https://doggurescue.vercel.app",
-  // },
+  {
+    id: 4,
+    title: "Content Management System",
+    description:
+      "A web application for managing and organizing digital content, featuring user authentication, role-based access, and a rich text editor.",
+    image: CMS,
+    // video: "/assets/projects/cms-demo.mp4",
+    tags: ["React"],
+    github: "https://github.com/hemshika22/CMS-App",
+    webapp: "https://hemshika22.github.io/CMS-App/",
+  },
 ];
 
