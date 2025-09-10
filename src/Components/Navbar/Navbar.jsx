@@ -30,23 +30,36 @@ const Navbar = () => {
     { id: "contact", label: "Contact" },
   ]
 
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isOpen && !event.target.closest('.mobile-menu-container') && 
+          !event.target.closest('.mobile-menu-button')) {
+        setIsOpen(false)
+      }
+    }
+    
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [isOpen])
+
   return (
     <nav
       className={`fixed top-0 w-full z-50 transition duration-300 
-        px-6 md:px-12 lg:px-32
+        px-4 sm:px-6 md:px-12 lg:px-32
         ${isScrolled ? 
-        'bg-[#0a192f]/90 bg-opacity-90 backdrop-blur-md border border-white/10 shadow-lg' : 'bg-transparent'}`}
+        'bg-[#0a192f]/90 backdrop-blur-md border-b border-white/10 shadow-lg' : 'bg-transparent'}`}
     >
-      <div className='text-white py-4 flex justify-between items-center'>
+      <div className='text-white py-3 sm:py-4 flex justify-between items-center'>
         {/* Logo */}
-        <div className='text-lg font-semibold cursor-pointer'>
+        <div className='text-base sm:text-lg font-semibold cursor-pointer' onClick={() => handleMenuItemClick('home')}>
           <span className='text-[#8245ec]'>&lt;</span>
           <span className='text-white'>Hemshika</span>
           <span className='text-[#8245ec]'>/&gt;</span>
         </div>
 
         {/* Desktop Menu */}
-        <ul className='hidden md:flex space-x-8 text-gray-300'>
+        <ul className='hidden md:flex space-x-4 lg:space-x-8 text-gray-300'>
           {menuItems.map((item) => (
             <li
               key={item.id}
@@ -66,7 +79,7 @@ const Navbar = () => {
             rel="noopener noreferrer"
             className='text-gray-300 hover:text-[#8245ec] transition-colors'
           >
-            <FaGithub size={22} />
+            <FaGithub size={20} className="sm:text-xl lg:text-2xl" />
           </a>
           <a
             href="https://www.linkedin.com/in/hemshika-gautam/"
@@ -74,22 +87,22 @@ const Navbar = () => {
             rel="noopener noreferrer"
             className='text-gray-300 hover:text-[#8245ec] transition-colors'
           >
-            <FaLinkedin size={22} />
+            <FaLinkedin size={20} className="sm:text-xl lg:text-2xl" />
           </a>
         </div>
 
         {/* Mobile Menu Toggle */}
-        <div className='md:hidden'>
+        <div className='md:hidden mobile-menu-button'>
           {isOpen ? (
             <FiX
               className='text-gray-300 hover:text-[#8245ec] cursor-pointer'
-              size={26}
+              size={24}
               onClick={() => setIsOpen(false)}
             />
           ) : (
             <FiMenu
               className='text-gray-300 hover:text-[#8245ec] cursor-pointer'
-              size={26}
+              size={24}
               onClick={() => setIsOpen(true)}
             />
           )}
@@ -99,38 +112,45 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {isOpen && (
         <div
-          className='absolute top-16 left-1/2 transform -translate-x-1/2 
-            w-[90%] max-w-sm bg-[#0a192f] bg-opacity-10 
-            shadow-md rounded-lg py-6 px-6 z-50 animate-fadeIn'
+          className='absolute top-14 sm:top-16 left-0 right-0 mx-auto 
+            w-[95%] sm:w-[90%] max-w-sm bg-[#0a192f] 
+            shadow-lg rounded-lg py-4 px-4 sm:py-6 sm:px-6 z-50 
+            border border-white/10 backdrop-blur-md 
+            transition-all duration-300 mobile-menu-container'
         >
-          <ul className='flex flex-col space-y-4 text-gray-300'>
+          <ul className='flex flex-col space-y-3 sm:space-y-4 text-gray-300'>
             {menuItems.map((item) => (
               <li
                 key={item.id}
-                className={`cursor-pointer hover:text-white transition-colors 
+                className={`cursor-pointer hover:text-[#8245ec] transition-colors 
                   ${activeSection === item.id ? 'text-[#8245ec]' : ''}`}
               >
-                <button onClick={() => handleMenuItemClick(item.id)}>{item.label}</button>
+                <button 
+                  onClick={() => handleMenuItemClick(item.id)}
+                  className="w-full text-left py-1 px-2 hover:bg-white/5 rounded transition-colors"
+                >
+                  {item.label}
+                </button>
               </li>
             ))}
 
             {/* Mobile Social Icons */}
-            <div className='flex space-x-4 pt-4'>
+            <div className='flex space-x-4 pt-2 sm:pt-4 border-t border-white/10 mt-2'>
               <a
                 href="https://github.com/Hemshika22"
                 target="_blank"
                 rel="noopener noreferrer"
-                className='text-gray-300 hover:text-white transition-colors'
+                className='text-gray-300 hover:text-[#8245ec] transition-colors p-2'
               >
-                <FaGithub size={22} />
+                <FaGithub size={20} />
               </a>
               <a
                 href="https://www.linkedin.com/in/hemshika-gautam/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className='text-gray-300 hover:text-white transition-colors'
+                className='text-gray-300 hover:text-[#8245ec] transition-colors p-2'
               >
-                <FaLinkedin size={22} />
+                <FaLinkedin size={20} />
               </a>
             </div>
           </ul>

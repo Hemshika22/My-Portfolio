@@ -21,6 +21,8 @@ import ECommerceVideo from './assets/E-CommerceVideo.mp4';
 import Portfolio from './assets/Portfolio.mp4';
 import PortfolioWebsite from './assets/PortfolioWebsite.png';
 import CMS from './assets/CMS-App.png';
+import AutoRentify from './assets/AutoRentify.mp4';
+import AutoRentifyImage from './assets/AutoRentifyImage.png';
 
 export const SkillsInfo = [
   {
@@ -118,6 +120,17 @@ export const educationData = [
 ];
 
 export const projects = [
+  {
+    id: 0,
+    title: "AutoRentify",
+    description:
+      "A car rental platform that allows users to rent cars for their trips. Users can search for cars based on their location, date, and car type. Users can also book a car for a specific duration. Users can also view the details of a car. Users can also view the reviews of a car. Users can also view the location of a car.",
+    image: AutoRentifyImage,
+    video: AutoRentify,
+    tags: ["React", "Node.js", "Express.js", "MongoDB", "Motion"],
+    github: "https://github.com/hemshika22/AutoRentify",
+    webapp: "https://auto-rentify.vercel.app/",
+  },
   {
     id: 1,
     title: "Snake Game",
