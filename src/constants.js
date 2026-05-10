@@ -2,18 +2,16 @@ import htmllogo from "./assets/html-5_logo.png";
 import csslogo from "./assets/css3_logo.png";
 import jslogo from "./assets/javascript_logo.png";
 import reactlogo from "./assets/react_logo.png";
-import canva from "./assets/canva_logo.png";
-import figma from "./assets/figma_logo.png";
-import github from "./assets/github_logo.png";
-import git from "./assets/git_logo.png";
 import mongodb from "./assets/mongodb_logo.webp";
 import nodejs from "./assets/nodejs_logo.png";
-import postman from "./assets/cloud-api.png";
 import expressjs from "./assets/express-js.png";
 import tailwind from "./assets/tailwind css2 logo.png";
 import python_logo from "./assets/python_logo.png";
 import java_logo from "./assets/java_logo.png";
-import { title } from "framer-motion/client";
+import { AiOutlineRobot } from "react-icons/ai";
+import { FaFigma, FaFlask, FaGithub, FaGitAlt } from "react-icons/fa";
+import { IoLogoJavascript } from "react-icons/io5";
+import { SiCanva, SiGooglecolab, SiKaggle } from "react-icons/si";
 import SnakeProject from './assets/SnakeProject.png';
 import SnakeVideo from './assets/SnakeVideo.mp4';
 import ECommerce from './assets/ECommerceProject.png';
@@ -23,6 +21,10 @@ import PortfolioWebsite from './assets/PortfolioWebsite.png';
 import CMS from './assets/CMS-App.png';
 import AutoRentify from './assets/AutoRentify.mp4';
 import AutoRentifyImage from './assets/AutoRentifyImage.png';
+import kisanova_video from './assets/kisanova_video.mp4';
+import kisanova_image from './assets/kisanova_image.png';
+import study_sync_video from './assets/study_sync_video.mp4';
+import study_sync from './assets/study_sync.png';
 
 export const SkillsInfo = [
   {
@@ -30,7 +32,7 @@ export const SkillsInfo = [
     skills: [
       { name: 'HTML', logo: htmllogo },
       { name: 'CSS', logo: csslogo },
-      { name: 'JavaScript', logo: jslogo },
+      { name: 'JavaScript', logo: jslogo, icon: IoLogoJavascript },
       { name: 'React', logo: reactlogo },
       { name: 'Tailwind CSS', logo: tailwind },
     ],
@@ -41,23 +43,31 @@ export const SkillsInfo = [
       { name: 'Node.js', logo: nodejs },
       { name: 'Express.js', logo: expressjs },
       { name: 'MongoDB', logo: mongodb },
-      { name: 'Postman', logo: postman },
     ],
   },
   {
-    title: "Design & Tools",
-    skills: [
-      { name: 'Figma', logo: figma },
-      { name: 'Canva', logo: canva },
-      { name: 'GitHub', logo: github },
-      { name: 'Git', logo: git },
-    ],
-  },
-  {
-    title: "Programming Languages",
+    title: "Programming",
     skills: [
       { name: 'Python', logo: python_logo },
       { name: 'Java', logo: java_logo },
+    ],
+  },
+  {
+    title: "AI / ML",
+    skills: [
+      { name: 'Machine Learning', icon: AiOutlineRobot },
+      { name: 'Flask', icon: FaFlask },
+    ],
+  },
+  {
+    title: "Tools & Platforms",
+    skills: [
+      { name: 'Kaggle', icon: SiKaggle },
+      { name: 'Google Colab', icon: SiGooglecolab },
+      { name: 'GitHub', icon: FaGithub },
+      { name: 'Git', icon: FaGitAlt },
+      { name: 'Figma', icon: FaFigma },
+      { name: 'Canva', icon: SiCanva },
     ],
   },
 ];
@@ -131,17 +141,17 @@ export const projects = [
     github: "https://github.com/hemshika22/AutoRentify",
     webapp: "https://auto-rentify.vercel.app/",
   },
-  {
-    id: 1,
-    title: "Snake Game",
-    description:
-      "A classic arcade game where players control a snake to eat food and grow while avoiding collisions.",
-    image: SnakeProject,
-    video: SnakeVideo,
-    tags: ["JavaScript", "HTML", "CSS"],
-    github: "https://github.com/hemshika22/snake-game",
-    webapp: "https://hemshika22.github.io/Snake-Game/",
-  },
+  // {
+  //   id: 1,
+  //   title: "Snake Game",
+  //   description:
+  //     "A classic arcade game where players control a snake to eat food and grow while avoiding collisions.",
+  //   image: SnakeProject,
+  //   video: SnakeVideo,
+  //   tags: ["JavaScript", "HTML", "CSS"],
+  //   github: "https://github.com/hemshika22/snake-game",
+  //   webapp: "https://hemshika22.github.io/Snake-Game/",
+  // },
   
   {
     id: 2,
@@ -175,6 +185,28 @@ export const projects = [
     tags: ["React"],
     github: "https://github.com/hemshika22/CMS-App",
     webapp: "https://hemshika22.github.io/CMS-App/",
+  },
+  {
+    id: 5,
+    title: "KisaNova-AI Farming Assistant",
+    description:
+      "An AI-powered farming assistant that provides personalized recommendations and insights to farmers based on their crops and conditions.",
+    image: kisanova_image,
+    video: kisanova_video,
+    tags: ["Python", "Flask", "Kaggle", "Resnet50", "ReactJs"],
+    github: "https://github.com/Hemshika22/KisaNova",
+    webapp: "https://kisa-nova.vercel.app/",
+  },
+  {
+    id: 6,
+    title: "Study-sync",
+    description:
+      "An AI-powered learning assistant that provides personalized recommendations and insights to students based on their progress and needs.",
+    image: study_sync,
+    video: study_sync_video,
+    tags: ["Python", "Flask", "ReactJs"],
+    github: "https://github.com/Hemshika22/StudySync",
+    webapp: "https://study-sync-yrpt-emrdtu2sl-hemshikas-projects.vercel.app/dashboard",
   },
 ];
 

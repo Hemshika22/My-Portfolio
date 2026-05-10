@@ -33,15 +33,16 @@ const Certifications = () => {
   return (
     <section
       id="certifications"
-      className="py-24 px-[7vw] md:px-[7vw] lg:px-[20vw] bg-[#0a0f1c] clip-path-custom"
+      className="py-24 px-[7vw] md:px-[7vw] lg:px-[20vw] clip-path-custom"
+      style={{ backgroundColor: 'var(--surface-bg)' }}
     >
       {/* Section Title */}
       <div className="text-center mb-12">
-        <h2 className="text-3xl sm:text-4xl font-bold text-white">
+        <h2 className="text-3xl sm:text-4xl font-bold text-[var(--text-main)]">
           CERTIFICATIONS
         </h2>
-        <div className="w-24 mx-auto h-1 bg-[#9929EA] mt-2"></div>
-        <p className="mt-4 text-gray-400 text-lg font-semibold">
+        <div className="w-24 mx-auto h-1 mt-2" style={{ backgroundColor: 'var(--accent)' }}></div>
+        <p className="mt-4 text-[var(--text-muted)] text-lg font-semibold">
           Achievements and credentials that validate my technical skills.
         </p>
       </div>
@@ -55,7 +56,8 @@ const Certifications = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: index * 0.2 }}
             viewport={{ once: true }}
-            className="bg-gray-900 p-6 rounded-2xl border border-white/10 shadow-[0_0_20px_1px_rgba(130,69,236,0.3)] hover:shadow-purple-500/30 transition"
+            className="p-6 rounded-2xl border shadow-[0_0_20px_1px_var(--hero-glow)] hover:shadow-[0_0_24px_1px_var(--hero-glow)] transition"
+            style={{ backgroundColor: 'var(--panel-bg)', borderColor: 'var(--border-color)' }}
           >
             {/* Logo */}
             <div className="flex justify-center mb-4">
@@ -67,11 +69,11 @@ const Certifications = () => {
             </div>
 
             {/* Content */}
-            <h3 className="text-xl font-semibold text-gray-200 mb-1">
+            <h3 className="text-xl font-semibold text-[var(--text-main)] mb-1">
               {cert.title}
             </h3>
-            <p className="text-sm text-gray-400">{cert.issuer}</p>
-            <span className="inline-block bg-[#9929EA]/20 text-[#9929EA] text-xs px-3 py-1 rounded-full mt-2">
+            <p className="text-sm text-[var(--text-muted)]">{cert.issuer}</p>
+            <span className="inline-block text-xs px-3 py-1 rounded-full mt-2" style={{ backgroundColor: 'color-mix(in srgb, var(--accent) 18%, transparent)', color: 'var(--accent)' }}>
               {cert.date}
             </span>
 
@@ -81,9 +83,9 @@ const Certifications = () => {
                 href={cert.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-semibold px-4 py-2 rounded-full text-white transition-all inline-block"
+                className="text-sm font-semibold px-4 py-2 rounded-full text-[var(--accent-contrast)] transition-all inline-block"
                 style={{
-                  background: "linear-gradient(90deg, #9929EA, #4BC0C8)",
+                  background: "linear-gradient(90deg, var(--accent), var(--accent-2))",
                 }}
               >
                 View Credential 🔗

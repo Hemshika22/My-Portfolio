@@ -23,7 +23,7 @@ const BlurBlob = ({position, size}) => {
         transform: 'translate(-50%, -50%)',
     }}>
       
-      <div className='w-full h-full bg-[#9929EA] rounded-full opacity-20 blur-3xl animate-blob'></div>
+      <div className='w-full h-full rounded-full opacity-20 blur-3xl animate-blob' style={{ backgroundColor: 'var(--accent)' }}></div>
     </div>
   )
 }

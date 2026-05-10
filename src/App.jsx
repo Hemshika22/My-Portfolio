@@ -15,11 +15,11 @@ const App =() => {
 
   return (
 
-    <div className='bg-[#0a192f]'>
+    <div className='relative min-h-screen bg-[var(--app-bg)] text-[var(--text-main)] overflow-x-hidden'>
 
       <BlurBlob position={{ top: '35%', left: '20%' }} size={{ width: '30%', height: '40%' }} />
 
-     <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:10px_20px]"></div>
+     <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(to_right,rgba(148,163,184,0.16)_1px,transparent_1px),linear-gradient(to_bottom,rgba(148,163,184,0.16)_1px,transparent_1px)] bg-[size:10px_20px]"></div>
 
       <div className='relative pt-20'>
         <Navbar />

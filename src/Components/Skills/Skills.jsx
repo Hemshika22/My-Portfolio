@@ -1,5 +1,4 @@
 import React from 'react'
-import Tilt from 'react-parallax-tilt';
 import { SkillsInfo } from '../../constants';
 import { motion } from 'framer-motion';
 
@@ -7,19 +6,20 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className='py-24 pb-24 px-[7vw] md:px-[7vw] lg:px-[20vw] bg-skills-gradient clip-path-custom'>
+      className='py-24 px-5 sm:px-8 lg:px-[14vw] clip-path-custom'
+      style={{ background: 'var(--skills-gradient)' }}>
 
       {/* SECTION TITLE */}
       <div className='text-center mb-8'>
-        <h2 className='text-3xl sm:text-4xl font-bold text-white'>SKILLS</h2>
-        <div className='w-24 mx-auto h-1 bg-[#9929EA] mt-2'></div>
-        <p className='mt-4 text-gray-400 text-lg font-semibold'>
+        <h2 className='text-3xl sm:text-4xl font-bold text-[var(--text-main)]'>SKILLS</h2>
+        <div className='w-24 mx-auto h-1 mt-2' style={{ backgroundColor: 'var(--accent)' }}></div>
+        <p className='mt-4 text-[var(--text-muted)] text-lg font-semibold'>
           A showcase of my technical skills and creative expertise, refined through hands-on projects and real-world experience.
         </p>
       </div>
 
       {/* Skills categories */}
-      <div className='flex flex-wrap justify-center lg:gap-5 gap-3 py-10'>
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-6 py-10'>
         {SkillsInfo.map((category, index) => (
           <motion.div
             key={category.title}
@@ -27,38 +27,40 @@ const Skills = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.2 }}
-            className="bg-gray-900 backdrop-blur-md px-6 sm:px-8 py-6 mb-10 w-full sm:w-[48%] rounded-2xl border border-white/10 shadow-[0_0_20px_1px_rgba(130,69,236,0.3)]"
+            className="backdrop-blur-md px-5 sm:px-6 py-6 rounded-2xl border shadow-[0_0_20px_1px_var(--hero-glow)]"
+            style={{ backgroundColor: 'var(--panel-bg)', borderColor: 'var(--border-color)' }}
           >
-            <h3 className="text-2xl font-semibold text-gray-200 mb-4">{category.title}</h3>
+            <h3 className="text-xl sm:text-2xl font-semibold text-[var(--text-main)] mb-5">{category.title}</h3>
 
-            {/* skills items */}
-            <Tilt
-              tiltMaxAngleX={10}
-              tiltMaxAngleY={10}
-              perspective={1000}
-              scale={1.05}
-              transitionSpeed={1000}
-              className="relative"
-            >
-              <ul className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-4 w-full">
-                {category.skills.map((skill) => (
+            <ul className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 w-full">
+              {category.skills.map((skill) => {
+                const Icon = skill.icon
+
+                return (
                   <li
                     key={skill.name}
-                    className="flex items-center justify-center space-x-3 bg-gray-800/30 border border-gray-700 rounded-lg px-4 py-2 
-                               transition-all duration-300 ease-in-out hover:scale-105 hover:border-purple-400 hover:shadow-lg hover:shadow-purple-500/20 cursor-pointer"
+                    className="group relative rounded-xl p-[1px] transition-all duration-300 hover:scale-[1.03]"
+                    style={{ background: 'linear-gradient(90deg, var(--accent), var(--accent-2))' }}
                   >
-                    <img
-                      src={skill.logo}
-                      alt={skill.name}
-                      className="w-8 h-8 object-contain"
-                    />
-                    <span className="text-xs sm:text-sm text-gray-200 font-semibold">
-                      {skill.name}
-                    </span>
+                      <div className="flex min-h-[64px] items-center justify-center gap-2 rounded-xl px-3 py-3 transition-all duration-300 group-hover:shadow-[0_0_18px_var(--hero-glow)]" style={{ backgroundColor: 'var(--surface-alt)' }}>
+                      {skill.logo ? (
+                        <img
+                          src={skill.logo}
+                          alt={skill.name}
+                          className="w-7 h-7 object-contain"
+                        />
+                      ) : Icon ? (
+                        <Icon className="h-5 w-5 text-[var(--accent-2)]" />
+                      ) : null}
+
+                      <span className="text-xs sm:text-sm text-[var(--text-main)] font-semibold text-center leading-tight">
+                        {skill.name}
+                      </span>
+                    </div>
                   </li>
-                ))}
-              </ul>
-            </Tilt>
+                )
+              })}
+            </ul>
           </motion.div>
         ))}
       </div>

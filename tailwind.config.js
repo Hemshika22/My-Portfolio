@@ -8,6 +8,17 @@ export default {
     ],
     theme: {
         extend: {
+            colors: {
+                'app-bg': 'var(--app-bg)',
+                'nav-bg': 'var(--nav-bg)',
+                'panel-bg': 'var(--panel-bg)',
+                'surface-bg': 'var(--surface-bg)',
+                'surface-alt': 'var(--surface-alt)',
+                'text-main': 'var(--text-main)',
+                'text-muted': 'var(--text-muted)',
+                'accent': 'var(--accent)',
+                'accent-2': 'var(--accent-2)',
+            },
             keyframes: {
                 blob: {
                     '0%': {transform: 'scale(1)' },

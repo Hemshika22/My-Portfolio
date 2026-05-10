@@ -7,20 +7,21 @@ const Education = () => {
   return (
     <section
       id="education"
-      className="py-24 px-[7vw] md:px-[7vw] lg:px-[20vw] bg-[#0a0f1c] clip-path-custom"
+      className="py-24 px-[7vw] md:px-[7vw] lg:px-[20vw] clip-path-custom"
+      style={{ backgroundColor: 'var(--surface-bg)' }}
     >
       {/* SECTION TITLE */}
       <div className="text-center mb-12">
-        <h2 className="text-3xl sm:text-4xl font-bold text-white">EDUCATION</h2>
-        <div className="w-24 mx-auto h-1 bg-[#9929EA] mt-2"></div>
-        <p className="mt-4 text-gray-400 text-lg font-semibold">
+        <h2 className="text-3xl sm:text-4xl font-bold text-[var(--text-main)]">EDUCATION</h2>
+        <div className="w-24 mx-auto h-1 mt-2" style={{ backgroundColor: 'var(--accent)' }}></div>
+        <p className="mt-4 text-[var(--text-muted)] text-lg font-semibold">
           My academic journey that shaped my technical and problem-solving
           foundation.
         </p>
       </div>
 
       {/* TIMELINE */}
-      <div className="relative border-l-4 border-[#9929EA] ml-4 md:ml-10">
+      <div className="relative border-l-4 ml-4 md:ml-10" style={{ borderColor: 'var(--accent)' }}>
         {educationData.map((edu, index) => (
           <motion.div
             key={edu.id}
@@ -31,18 +32,18 @@ const Education = () => {
             className="mb-10 ml-6"
           >
             {/* Timeline Dot */}
-            <span className="absolute w-5 h-5 bg-[#9929EA] rounded-full mt-2 -left-[12px] border-4 border-[#0a0f1c]"></span>
+            <span className="absolute w-5 h-5 rounded-full mt-2 -left-[12px] border-4" style={{ backgroundColor: 'var(--accent)', borderColor: 'var(--surface-bg)' }}></span>
 
             {/* Card */}
-            <div className="bg-gray-900 backdrop-blur-md p-6 rounded-2xl shadow-[0_0_20px_1px_rgba(130,69,236,0.3)] hover:shadow-purple-500/30 transition">
-              <h3 className="text-xl font-semibold text-gray-200">
+            <div className="backdrop-blur-md p-6 rounded-2xl shadow-[0_0_20px_1px_var(--hero-glow)] hover:shadow-[0_0_24px_1px_var(--hero-glow)] transition" style={{ backgroundColor: 'var(--panel-bg)' }}>
+              <h3 className="text-xl font-semibold text-[var(--text-main)]">
                 {edu.degree}
               </h3>
-              <p className="text-sm text-gray-400">{edu.institute}</p>
-              <span className="inline-block bg-[#9929EA]/20 text-[#9929EA] text-xs px-3 py-1 rounded-full mt-2">
+              <p className="text-sm text-[var(--text-muted)]">{edu.institute}</p>
+              <span className="inline-block text-xs px-3 py-1 rounded-full mt-2" style={{ backgroundColor: 'color-mix(in srgb, var(--accent) 18%, transparent)', color: 'var(--accent)' }}>
                 {edu.year}
               </span>
-              <p className="text-gray-400 mt-3 text-sm">{edu.description}</p>
+              <p className="text-[var(--text-muted)] mt-3 text-sm">{edu.description}</p>
             </div>
           </motion.div>
         ))}
